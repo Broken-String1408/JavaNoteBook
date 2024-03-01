@@ -2,13 +2,15 @@
 public class Main {
     public static void main(String[] args) {
         NoteBookDB db = new NoteBookDB();
+
         db.addNoteBook(
-            new NoteBook("Asus", 15_000, 2, NoteBook.Color.BLUE, NoteBook.OS.WINDOWS, 15.6),
-            new NoteBook("IMac", 60_000, 4, NoteBook.Color.WHITE, NoteBook.OS.MAC, 14.0),
-            new NoteBook("IMac", 60_000, 4, NoteBook.Color.BLACK, NoteBook.OS.MAC, 14.0),
-            new NoteBook("Acer", 40_000, 8, NoteBook.Color.SILVER, NoteBook.OS.LINUX, 15.6)
+            new NoteBook(Specs.Brand.LENOVO, 15_000, Specs.RAM.RAM_2_GB, Specs.Color.BLUE, Specs.OS.WINDOWS, Specs.Screen.RES_15_6_INCH),
+            new NoteBook(Specs.Brand.APPLE, 60_000, Specs.RAM.RAM_4_GB, Specs.Color.WHITE, Specs.OS.MAC, Specs.Screen.RES_14_INCH),
+            new NoteBook(Specs.Brand.APPLE, 60_000, Specs.RAM.RAM_4_GB, Specs.Color.BLACK, Specs.OS.MAC, Specs.Screen.RES_14_INCH),
+            new NoteBook(Specs.Brand.ACER, 40_000, Specs.RAM.RAM_8_GB, Specs.Color.SILVER, Specs.OS.LINUX, Specs.Screen.RES_17_INCH),
+            new NoteBook(Specs.Brand.DEL, 120_000, Specs.RAM.RAM_16_GB, Specs.Color.GREY, Specs.OS.WINDOWS, Specs.Screen.RES_17_INCH)
         );
-        // System.out.println(db.getAllNoteBooks());
-        NoteBookDB.runUserRequest();
+
+        db.runUserRequest();
     }
 }

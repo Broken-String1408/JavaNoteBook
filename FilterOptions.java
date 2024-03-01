@@ -39,27 +39,27 @@ public sealed class FilterOptions {
     }
 
     public static final class Color extends FilterOptions {
-        private NoteBook.Color color;
-        public Color(NoteBook.Color color) {
+        private Specs.Color color;
+        public Color(Specs.Color color) {
             this.color = color;
         }
-        public NoteBook.Color getColor() {
+        public Specs.Color getColor() {
             return color;
         }
-        public void setColor(NoteBook.Color price){
+        public void setColor(Specs.Color price){
             this.color = price;
         }
     }
 
     public static final class OS extends FilterOptions {
-        private NoteBook.OS os;
-        public OS(NoteBook.OS os) {
+        private Specs.OS os;
+        public OS(Specs.OS os) {
             this.os = os;
         }
-        public NoteBook.OS getOs() {
+        public Specs.OS getOs() {
             return os;
         }
-        public void setOs(NoteBook.OS os){
+        public void setOs(Specs.OS os){
             this.os = os;
         }
     }

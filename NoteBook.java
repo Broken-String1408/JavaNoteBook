@@ -15,33 +15,27 @@
 import java.util.Objects;
 
 public class NoteBook {
-    
-    public enum OS{
-        WINDOWS, LINUX, MAC
-    }  
-    public enum Color{
-        SILVER, BLACK, WHITE, BLUE, GREY
-    }  
-    private int price;
-    private int ram;
-    private Color color;
-    private OS system;
-    private double screenSize;
-    private String name;
 
-    public NoteBook (String name, int price, int ram, Color color, OS system, double screenSize) {
+    private int price;
+    private Specs.RAM ram;
+    private Specs.Color color;
+    private Specs.OS system;
+    private Specs.Screen screenSize;
+    private Specs.Brand brand;
+
+    public NoteBook (Specs.Brand brand, int price, Specs.RAM ram, Specs.Color color, Specs.OS system, Specs.Screen screenSize) {
         this.price = price;
         this.ram = ram;
         this.color = color;
         this.system = system;
         this.screenSize = screenSize;
-        this.name = name;
+        this.brand = brand;
     }
-        public String getName(){
-            return name;
+        public Specs.Brand getBrand(){
+            return brand;
         }
-        public void setName(String name){
-            this.name = name;
+        public void setBrand(Specs.Brand brand){
+            this.brand = brand;
         }
         public int getPrice() {
             return price;
@@ -52,45 +46,45 @@ public class NoteBook {
         }
     
         public int getRam() {
-            return ram;
+            return ram.capacity;
         }
     
-        public void setRam(int ram) {
+        public void setRam(Specs.RAM ram) {
             this.ram = ram;
         }
     
-        public Color getColor() {
+        public Specs.Color getColor() {
             return color;
         }
     
-        public void setColor(Color color) {
+        public void setColor(Specs.Color color) {
             this.color = color;
         }
     
-        public OS getSystem() {
+        public Specs.OS getSystem() {
             return system;
         }
     
-        public void setSystem(OS system) {
+        public void setSystem(Specs.OS system) {
             this.system = system;
         }
     
         public double getScreenSize() {
-            return screenSize;
+            return screenSize.res;
         }
     
-        public void setScreenSize(double screenSize) {
+        public void setScreenSize(Specs.Screen screenSize) {
             this.screenSize = screenSize;
         }
         @Override
     public String toString() {
-        return "NoteBook{" +
-                "name = " + name +
-                ", price = " + price +
-                ", ram = " + ram +
-                ", color = " + color +
-                ", system = " + system +
-                ", screenSize = " + screenSize +
+        return "NoteBook {" +
+                "производитель = " + brand +
+                ", цена = " + price +
+                ", озу = " + ram +
+                ", цвет = " + color +
+                ", ОС = " + system +
+                ", экран = " + screenSize +
                 '}';
     }
     @Override
@@ -101,6 +95,7 @@ public class NoteBook {
         NoteBook noteBook = (NoteBook) o;
 
         if (price != noteBook.price) return false;
+        if (brand != noteBook.brand) return false;
         if (ram != noteBook.ram) return false;
         if (screenSize != noteBook.screenSize) return false;
         if (color != noteBook.color) return false;
@@ -109,6 +104,6 @@ public class NoteBook {
 
     @Override
     public int hashCode() {
-    return Objects.hash(name, price, ram, color, system, screenSize);
+    return Objects.hash(brand, price, ram, color, system, screenSize);
     }
 }
